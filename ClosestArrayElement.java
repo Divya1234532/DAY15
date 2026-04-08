@@ -6,7 +6,7 @@ import java.util.TreeSet;
 public class ClosestArrayElement {
     public static void main(String[] args) {
         int[] arr={15,3,9,1,7,2};
-        int target=7;
+        int target=1;
         Set<Integer> LinkedSet=new LinkedHashSet<>();
         Set<Integer> Hset=new HashSet<>();
         TreeSet<Integer> Tset=new TreeSet<>();
@@ -16,9 +16,24 @@ public class ClosestArrayElement {
         }
         Integer lower=Tset.lower(target);
         Integer higher=Tset.higher(target);
-        Integer diff1=target-lower;
-        Integer diff2=higher-target;
-        System.out.println(diff1>=diff2?higher:lower);
+        int res=0;
+        if(lower==null)
+        {
+            res=higher;
+            System.out.println(res);
+        }
+        else if(higher==null)
+        {
+            res=lower;
+            System.out.println(res);
+        }
+        else
+        {
+            Integer diff1=target-lower;
+            Integer diff2=higher-target;
+            System.out.println(diff1>=diff2?higher:lower);
+        }
+
 
     }
 }
